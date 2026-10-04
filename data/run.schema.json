@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fare Radar daily run",
+  "type": "object",
+  "required": ["searchedAt", "options", "recommendation"],
+  "properties": {
+    "searchedAt": { "type": "string", "format": "date-time" },
+    "recommendation": {
+      "type": "object",
+      "required": ["code", "title", "reason"],
+      "properties": {
+        "code": { "enum": ["BUY_NOW", "WATCH", "WEAK"] },
+        "title": { "type": "string" },
+        "reason": { "type": "string" }
+      }
+    },
+    "alerts": { "type": "array" },
+    "points": { "type": "array" },
+    "options": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["departDate", "returnDate", "cabin", "marketingCarrier", "operatingCarriers", "source", "totalBRL", "score", "verified", "bag23kgPerAdultIncluded", "selfTransfer", "airportChange", "outbound", "inbound"],
+        "properties": {
+          "departDate": { "type": "string", "format": "date" },
+          "returnDate": { "type": "string", "format": "date" },
+          "tripDays": { "type": "integer", "minimum": 8, "maximum": 12 },
+          "cabin": { "enum": ["Economy", "Premium Economy"] },
+          "marketingCarrier": { "type": "string" },
+          "operatingCarriers": { "type": "array", "items": { "type": "string" } },
+          "source": { "enum": ["Companhia aérea", "Decolar", "Booking"] },
+          "sourceUrl": { "type": "string" },
+          "totalBRL": { "type": "number", "exclusiveMinimum": 0 },
+          "score": { "type": "number", "minimum": 0, "maximum": 100 },
+          "verified": { "const": true },
+          "bag23kgPerAdultIncluded": { "const": true },
+          "selfTransfer": { "const": false },
+          "airportChange": { "const": false },
+          "outbound": { "$ref": "#/$defs/leg" },
+          "inbound": { "$ref": "#/$defs/leg" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "leg": {
+      "type": "object",
+      "required": ["origin", "destination", "stops"],
+      "properties": {
+        "origin": { "type": "string" },
+        "destination": { "type": "string" },
+        "stops": { "type": "integer", "minimum": 0, "maximum": 1 },
+        "connectionMinutes": { "type": "integer", "minimum": 90, "maximum": 180 }
+      }
+    }
+  }
+}
