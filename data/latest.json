@@ -1,0 +1,17 @@
+{
+  "status": "waiting",
+  "searchedAt": null,
+  "recommendation": {
+    "code": "WAITING",
+    "title": "Primeira varredura ainda não realizada",
+    "reason": "O painel está pronto. A primeira pesquisa real vai inaugurar o histórico de preços."
+  },
+  "summary": {
+    "bestPurchase": null,
+    "lowestPrice": null,
+    "bestPremium": null
+  },
+  "alerts": [],
+  "options": [],
+  "points": []
+}
