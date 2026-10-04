@@ -1,0 +1,10 @@
+{
+  "name": "fare-radar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dashboard persistente para monitoramento de tarifas Londres/Paris 2027.",
+  "scripts": {
+    "check": "node scripts/validate-data.mjs",
+    "preview": "python3 -m http.server 4173"
+  }
+}
