@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08111f" />
+  <meta name="description" content="Fare Radar — monitoramento de passagens São Paulo/Londres e Paris/São Paulo para 2027." />
+  <title>Fare Radar · Londres & Paris 2027</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%2308111f%22/><path d=%22M14 34h36M33 15l8 19-8 15M29 24l-9 10 9 9%22 fill=%22none%22 stroke=%22%236fe6be%22 stroke-width=%225%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="shell topbar">
+    <a class="brand" href="#top" aria-label="Fare Radar, início">
+      <span class="brand-mark" aria-hidden="true">↗</span>
+      <span>
+        <strong>Fare Radar</strong>
+        <small>Londres & Paris · 2027</small>
+      </span>
+    </a>
+    <div class="top-actions">
+      <span class="status-dot" id="statusDot"></span>
+      <span class="muted" id="lastUpdate">Aguardando primeira pesquisa</span>
+      <button class="ghost-button" id="refreshButton" type="button">Atualizar painel</button>
+    </div>
+  </header>
+
+  <main id="top" class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">RADAR DE OPORTUNIDADES</p>
+        <h1>Preço bom é preço <em>bom no contexto.</em></h1>
+        <p class="hero-text">O Fare Radar cruza preço, cabine, conexões, aeroportos e histórico para indicar quando vale comprar — sem transformar a decisão em uma planilha interminável.</p>
+        <div class="criteria-row" id="criteriaRow" aria-label="Critérios da viagem"></div>
+      </div>
+      <div class="signal-card" id="signalCard">
+        <div class="signal-card-head">
+          <span>Sinal de compra</span>
+          <span class="signal-pill" id="signalPill">AGUARDANDO</span>
+        </div>
+        <div class="signal-body">
+          <strong id="signalTitle">Primeira varredura ainda não realizada</strong>
+          <p id="signalReason">Assim que houver dados reais, o radar compara o preço do dia com todo o histórico e indica comprar ou acompanhar.</p>
+        </div>
+        <div class="signal-footer">
+          <span>Orçamento-alvo</span>
+          <strong id="budgetValue">R$ 12.000</strong>
+        </div>
+      </div>
+    </section>
+
+    <div class="alert-strip" id="alertStrip" hidden></div>
+
+    <section class="metric-grid" aria-label="Resumo da pesquisa">
+      <article class="metric-card featured">
+        <div class="metric-label"><span>Melhor compra</span><span class="metric-icon">◎</span></div>
+        <strong class="metric-value" id="bestPurchasePrice">—</strong>
+        <p id="bestPurchaseRoute">Aguardando pesquisa</p>
+        <div class="metric-meta" id="bestPurchaseMeta">Score —</div>
+      </article>
+      <article class="metric-card">
+        <div class="metric-label"><span>Menor preço</span><span class="metric-icon">↓</span></div>
+        <strong class="metric-value" id="lowestPrice">—</strong>
+        <p id="lowestPriceRoute">Sem dados ainda</p>
+        <div class="metric-meta" id="lowestPriceMeta">Histórico começa na 1ª busca</div>
+      </article>
+      <article class="metric-card">
+        <div class="metric-label"><span>Premium Economy</span><span class="metric-icon">✦</span></div>
+        <strong class="metric-value" id="premiumPrice">—</strong>
+        <p id="premiumRoute">Sem dados ainda</p>
+        <div class="metric-meta" id="premiumMeta">Comparação Economy × Premium</div>
+      </article>
+      <article class="metric-card">
+        <div class="metric-label"><span>Menor histórico</span><span class="metric-icon">↘</span></div>
+        <strong class="metric-value" id="historicLow">—</strong>
+        <p id="historicLowDate">O histórico ainda está vazio</p>
+        <div class="metric-meta" id="historicLowMeta">0 pesquisas registradas</div>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel trend-panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">EVOLUÇÃO</p>
+            <h2>Preço ao longo do tempo</h2>
+          </div>
+          <div class="trend-badge" id="trendBadge">SEM DADOS</div>
+        </div>
+        <div class="chart-wrap" id="chartWrap" role="img" aria-label="Gráfico histórico de preços">
+          <div class="empty-chart">
+            <span>◌</span>
+            <strong>O gráfico nasce com a primeira pesquisa</strong>
+            <p>Cada nova execução adiciona um ponto ao histórico — sem apagar os anteriores.</p>
+          </div>
+        </div>
+        <div class="chart-stats">
+          <div><span>Média</span><strong id="averagePrice">—</strong></div>
+          <div><span>Última variação</span><strong id="lastVariation">—</strong></div>
+          <div><span>Pesquisas</span><strong id="runCount">0</strong></div>
+        </div>
+      </article>
+
+      <aside class="panel rule-panel">
+        <div class="panel-head compact">
+          <div>
+            <p class="eyebrow">FILTRO RÍGIDO</p>
+            <h2>O que entra no radar</h2>
+          </div>
+        </div>
+        <div class="rule-list" id="ruleList"></div>
+      </aside>
+    </section>
+
+    <section class="panel options-panel">
+      <div class="panel-head table-head">
+        <div>
+          <p class="eyebrow">RANKING DO DIA</p>
+          <h2>Melhores opções encontradas</h2>
+        </div>
+        <div class="segmented" role="group" aria-label="Filtro de cabine">
+          <button type="button" class="segment active" data-cabin="all">Todas</button>
+          <button type="button" class="segment" data-cabin="Economy">Economy</button>
+          <button type="button" class="segment" data-cabin="Premium Economy">Premium</button>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Datas</th>
+              <th>Itinerário</th>
+              <th>Cabine</th>
+              <th>Conexões</th>
+              <th>Fonte</th>
+              <th>Preço casal</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody id="optionsBody"></tbody>
+        </table>
+        <div class="table-empty" id="tableEmpty">
+          <span class="plane">✈</span>
+          <strong>Pronto para a primeira busca</strong>
+          <p>O ranking aparecerá aqui já filtrado pelos seus critérios.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lower-grid">
+      <article class="panel">
+        <div class="panel-head compact">
+          <div>
+            <p class="eyebrow">PONTOS & BENEFÍCIOS</p>
+            <h2>Itaú Personnalité Black</h2>
+          </div>
+        </div>
+        <div id="pointsArea" class="stack-empty">
+          <span>◇</span>
+          <div>
+            <strong>Nenhuma oportunidade em pontos registrada</strong>
+            <p>Quando houver emissão ou transferência verificável, ela será comparada com o preço em dinheiro.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head compact">
+          <div>
+            <p class="eyebrow">HISTÓRICO</p>
+            <h2>Últimas pesquisas</h2>
+          </div>
+        </div>
+        <div id="historyList" class="timeline"></div>
+      </article>
+    </section>
+
+    <section class="panel source-panel">
+      <div>
+        <p class="eyebrow">FONTES AUTORIZADAS</p>
+        <h2>Comprar só onde você definiu</h2>
+        <p>Companhias aéreas oficiais, Decolar e Booking. Quando a diferença for pequena, o radar favorece a compra diretamente com a companhia.</p>
+      </div>
+      <div class="source-chips">
+        <span>Companhia aérea</span><span>Decolar</span><span>Booking</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <div><strong>Fare Radar</strong><span>Monitor de tarifas · viagem 2027</span></div>
+    <p>Dados de disponibilidade e preço mudam rapidamente. A compra é sempre manual e feita por você.</p>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
