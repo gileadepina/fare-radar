@@ -1,0 +1,34 @@
+{
+  "project": "Fare Radar",
+  "tripYear": 2027,
+  "passengers": { "adults": 2 },
+  "window": {
+    "earliestDeparture": "2027-01-08",
+    "latestReturn": "2027-02-14"
+  },
+  "stay": { "minDays": 8, "maxDays": 12 },
+  "outbound": {
+    "origins": ["GRU", "VCP"],
+    "destinations": ["LHR", "LGW", "LCY", "STN", "LTN"]
+  },
+  "inbound": {
+    "origins": ["CDG", "ORY"],
+    "destinations": ["GRU", "VCP"]
+  },
+  "london": { "preferred": ["LHR", "LGW", "LCY"] },
+  "cabins": ["Economy", "Premium Economy"],
+  "budgetBRL": 12000,
+  "baggage": { "checked23kgPerAdult": 1 },
+  "connection": {
+    "maxStopsPerDirection": 1,
+    "minMinutes": 90,
+    "maxMinutes": 180,
+    "airportChangeAllowed": false,
+    "selfTransferAllowed": false
+  },
+  "excludedCarriers": ["Ryanair", "Wizz Air", "TAP Air Portugal", "Iberia", "Air Europa"],
+  "allowedSources": ["Companhia aérea", "Decolar", "Booking"],
+  "seatSelection": { "showCostSeparately": true },
+  "points": { "considerItau": true, "card": "Itaú Personnalité Black" },
+  "purchase": { "automaticPurchaseAllowed": false }
+}
