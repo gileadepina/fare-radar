@@ -25,6 +25,14 @@ function dateRange(option) {
   return `${shortDate.format(new Date(option.departDate + 'T12:00:00'))} → ${shortDate.format(new Date(option.returnDate + 'T12:00:00'))}`;
 }
 function days(option) { const value = option?.tripDays ?? option?.nights; return value ? `${value} dias` : ''; }
+function referenceRoute(ref) {
+  if (ref?.outbound && ref?.inbound) return `${ref.outbound.origin || '—'} → ${ref.outbound.destination || '—'} · ${ref.inbound.origin || '—'} → ${ref.inbound.destination || '—'}`;
+  return '—';
+}
+function referenceDates(ref) {
+  if (!ref?.departDate || !ref?.returnDate) return '—';
+  return `${shortDate.format(new Date(ref.departDate + 'T12:00:00'))} → ${shortDate.format(new Date(ref.returnDate + 'T12:00:00'))}`;
+}
 
 async function readJson(path) {
   const sep = path.includes('?') ? '&' : '?';
@@ -172,8 +180,8 @@ function renderOptions() {
                 <strong>${ref.provider || ref.source || 'Referência'}</strong>
                 <span>${ref.cabin || '—'}</span>
               </div>
-              <div class="reference-price">${money(ref.pricePerAdultBRL)} <small>por adulto</small></div>
-              <p>${ref.route || '—'} · ${ref.dates || '—'}</p>
+              <div class="reference-price">${ref.totalBRL ? money(ref.totalBRL) + ' <small>casal</small>' : money(ref.pricePerAdultBRL) + ' <small>por adulto</small>'}</div>
+              <p>${referenceRoute(ref)} · ${referenceDates(ref)}</p>
               <div class="reference-note">${ref.note || 'Referência de mercado não elegível.'}</div>
             </article>
           `).join('')}
