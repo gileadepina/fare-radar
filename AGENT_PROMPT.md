@@ -2,7 +2,23 @@
 
 Realize uma pesquisa diária de passagens para 2 adultos com os critérios de `data/config.json`.
 
-Use o Skyscanner como fonte principal de descoberta e comparação de combinações de datas, companhias e aeroportos. O Skyscanner NÃO é uma fonte final autorizada para registrar preço no dashboard: antes de promover uma opção para `data/latest.json`, confirme a mesma oferta ou uma oferta equivalente diretamente na companhia aérea oficial, Decolar ou Booking.
+## REGRA MAIS IMPORTANTE: ROTEIRO OPEN-JAW
+
+A pesquisa é obrigatoriamente uma única viagem multidestino/open-jaw:
+
+1. IDA: GRU ou VCP → um aeroporto de Londres.
+2. VOLTA: CDG ou ORY → GRU ou VCP.
+
+É proibido tratar como resultado, alternativa ou referência:
+- São Paulo → Londres → São Paulo;
+- São Paulo → Paris → São Paulo;
+- qualquer ida e volta pelo mesmo destino europeu;
+- duas pesquisas round-trip independentes usadas como se representassem a viagem solicitada.
+
+Toda oferta ou referência exibida no Fare Radar deve representar a combinação completa:
+**São Paulo → Londres + Paris → São Paulo**.
+
+Use o Skyscanner em modo multicity/multidestino como fonte principal de descoberta e comparação de combinações de datas, companhias e aeroportos. O Skyscanner NÃO é uma fonte final autorizada para registrar preço no dashboard: antes de promover uma opção para `data/latest.json`, confirme a mesma oferta ou uma oferta equivalente diretamente na companhia aérea oficial, Decolar ou Booking.
 
 Regras críticas:
 
@@ -23,12 +39,15 @@ Regras críticas:
 
 Fluxo recomendado:
 
-1. Use o Skyscanner para identificar as combinações mais promissoras dentro da janela inteira.
-2. Priorize as combinações de 8 a 12 dias com menor preço aparente.
-3. Revalide cada candidata em companhia oficial, Decolar ou Booking.
-4. Confirme preço final para 2 adultos, bagagem de 23 kg por adulto, companhias operadoras, aeroportos e conexão.
-5. Rejeite qualquer opção que não tenha todos esses dados verificáveis.
-6. Só então calcule o score e registre a opção no Fare Radar.
+1. No Skyscanner, pesquise em modo multicity/multidestino: GRU/VCP → Londres e Paris → GRU/VCP.
+2. Identifique as combinações mais promissoras dentro da janela inteira.
+3. Priorize permanências de 8 a 12 dias com menor preço aparente.
+4. Revalide cada candidata em companhia oficial, Decolar ou Booking.
+5. Confirme preço final para 2 adultos, bagagem de 23 kg por adulto, companhias operadoras, aeroportos e conexão.
+6. Rejeite qualquer opção que não tenha todos esses dados verificáveis.
+7. Só então calcule o score e registre a opção no Fare Radar.
+
+Se desejar registrar uma `marketReference`, ela também deve obrigatoriamente conter os dois trechos open-jaw completos. Referências round-trip pelo mesmo destino são proibidas.
 
 Para cada combinação elegível, compare o preço final para o casal e calcule score 0–100 com prioridade para preço, depois conexões, aeroportos, confiabilidade da fonte, composição da tarifa e cabine.
 
