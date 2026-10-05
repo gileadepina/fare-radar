@@ -1,6 +1,7 @@
 {
   "project": "Fare Radar",
   "tripYear": 2027,
+  "tripType": "open-jaw",
   "passengers": {
     "adults": 2
   },
@@ -34,6 +35,12 @@
       "GRU",
       "VCP"
     ]
+  },
+  "routePolicy": {
+    "requiredPattern": "GRU/VCP -> Londres + Paris(CDG/ORY) -> GRU/VCP",
+    "roundTripSameCityAllowed": false,
+    "roundTripSameCityReferencesAllowed": false,
+    "marketReferencesMustMatchOpenJaw": true
   },
   "london": {
     "preferred": [
