@@ -1,10 +1,10 @@
 {
   "status": "complete",
-  "searchedAt": "2026-10-05T10:44:00-03:00",
+  "searchedAt": "2026-10-05T12:07:42-03:00",
   "recommendation": {
     "code": "WATCH",
-    "title": "Acompanhar — nenhuma tarifa open-jaw completa foi confirmada",
-    "reason": "A primeira varredura não confirmou uma oferta completa São Paulo→Londres + Paris→São Paulo que atendesse simultaneamente bagagem, conexões, companhias e preço final. As referências round-trip anteriores foram removidas por não representarem o roteiro correto."
+    "title": "Acompanhar — há referências open-jaw abaixo de R$ 12 mil",
+    "reason": "A nova varredura encontrou três combinações open-jaw corretas abaixo do orçamento. Elas permanecem como referências, não como ofertas elegíveis, porque ainda faltou confirmar bagagem de 23 kg por adulto e os detalhes completos das conexões em companhia aérea, Decolar ou Booking."
   },
   "summary": {
     "bestPurchase": null,
@@ -12,23 +12,99 @@
     "bestPremium": null
   },
   "alerts": [
-    "Pesquisa concluída sem oferta open-jaw elegível. Referências ida-e-volta pelo mesmo destino foram removidas e não serão mais aceitas."
+    "3 referências open-jaw ficaram abaixo de R$ 12.000 para o casal. A menor foi R$ 10.168, mas ainda é indicativa e não deve ser tratada como tarifa comprável."
   ],
   "options": [],
   "points": [],
-  "marketReferences": [],
+  "marketReferences": [
+    {
+      "provider": "Skyscanner — indicativo",
+      "source": "Skyscanner",
+      "cabin": "Economy",
+      "departDate": "2027-01-22",
+      "returnDate": "2027-01-30",
+      "tripDays": 8,
+      "totalBRL": 10168,
+      "outbound": {
+        "origin": "VCP",
+        "destination": "LTN",
+        "carrier": "Azul Airlines",
+        "indicativePerAdultBRL": 2267,
+        "connectionStatus": "não verificada"
+      },
+      "inbound": {
+        "origin": "ORY",
+        "destination": "GRU",
+        "carrier": "Transavia France",
+        "indicativePerAdultBRL": 2817,
+        "connectionStatus": "não verificada"
+      },
+      "note": "Combinação open-jaw correta e abaixo do orçamento: VCP→LTN em 22/01 + ORY→GRU em 30/01. Total indicativo para 2 adultos calculado pela soma das duas tarifas one-way do Skyscanner. Não elegível ainda: bagagem de 23 kg e duração/quantidade exata das conexões não foram confirmadas em fonte final autorizada."
+    },
+    {
+      "provider": "Skyscanner — indicativo",
+      "source": "Skyscanner",
+      "cabin": "Economy",
+      "departDate": "2027-01-20",
+      "returnDate": "2027-01-28",
+      "tripDays": 8,
+      "totalBRL": 10564,
+      "outbound": {
+        "origin": "GRU",
+        "destination": "LHR",
+        "carrier": "Avianca",
+        "indicativePerAdultBRL": 2477,
+        "connectionStatus": "não verificada"
+      },
+      "inbound": {
+        "origin": "ORY",
+        "destination": "GRU",
+        "carrier": "Transavia France",
+        "indicativePerAdultBRL": 2805,
+        "connectionStatus": "não verificada"
+      },
+      "note": "Combinação open-jaw correta com Heathrow priorizado: GRU→LHR em 20/01 + ORY→GRU em 28/01. Total indicativo para 2 adultos. Não elegível ainda: bagagem de 23 kg e detalhes completos das conexões não foram confirmados em companhia/Decolar/Booking."
+    },
+    {
+      "provider": "Skyscanner — indicativo",
+      "source": "Skyscanner",
+      "cabin": "Economy",
+      "departDate": "2027-01-19",
+      "returnDate": "2027-01-27",
+      "tripDays": 8,
+      "totalBRL": 10726,
+      "outbound": {
+        "origin": "VCP",
+        "destination": "LHR",
+        "carrier": "Azul Airlines",
+        "indicativePerAdultBRL": 2676,
+        "stops": 1,
+        "connectionStatus": "duração não verificada"
+      },
+      "inbound": {
+        "origin": "ORY",
+        "destination": "VCP",
+        "carrier": "Transavia France",
+        "indicativePerAdultBRL": 2687,
+        "stops": 1,
+        "connectionStatus": "duração não verificada"
+      },
+      "note": "Combinação open-jaw correta e mantendo VCP nos dois lados: VCP→LHR em 19/01 + ORY→VCP em 27/01. O Skyscanner indica 1 escala em cada trecho; a duração das conexões e a bagagem de 23 kg ainda precisam de confirmação final."
+    }
+  ],
   "searchDiagnostics": {
     "sourcesChecked": [
-      "LATAM",
-      "Air France",
-      "KLM",
-      "Decolar",
-      "Booking.com",
-      "Google Flights para descoberta"
+      "Skyscanner — descoberta/indicativo",
+      "Azul — site oficial",
+      "Decolar — páginas indexadas",
+      "Transavia — site oficial"
     ],
     "eligibleOfferCount": 0,
+    "openJawReferenceCount": 3,
+    "lowestOpenJawReferenceBRL": 10168,
     "strictValidationApplied": true,
     "routeValidation": "open-jaw obrigatório: São Paulo→Londres + Paris→São Paulo",
-    "reasonNoEligibleOffers": "Nenhuma fonte acessível forneceu, na mesma combinação open-jaw, preço final para 2 adultos com bagagem despachada confirmada e todos os detalhes necessários para validar conexão e companhia operadora."
+    "premiumEconomyStatus": "nenhuma tarifa Premium Economy completa foi validada nesta execução",
+    "reasonNoEligibleOffers": "As combinações do Skyscanner são indicativas por trecho. As fontes finais consultáveis não permitiram confirmar simultaneamente preço total open-jaw, 1 mala de 23 kg por adulto e duração das conexões dentro de 90–180 minutos."
   }
 }
