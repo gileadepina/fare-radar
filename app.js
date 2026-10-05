@@ -11,7 +11,7 @@ const shortDate = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'sho
 const dateTime = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
 function el(id) { return document.getElementById(id); }
-function money(value) { return Number.isFinite(Number(value)) ? brl.format(Number(value)) : '—'; }
+function money(value) { return value === null || value === undefined || value === '' || !Number.isFinite(Number(value)) ? '—' : brl.format(Number(value)); }
 function safeDate(value) { return value ? new Date(value) : null; }
 function cabinLabel(value) { return value === 'Premium Economy' ? 'Premium' : value || '—'; }
 function routeLabel(option) {
@@ -24,7 +24,7 @@ function dateRange(option) {
   if (!option?.departDate || !option?.returnDate) return '—';
   return `${shortDate.format(new Date(option.departDate + 'T12:00:00'))} → ${shortDate.format(new Date(option.returnDate + 'T12:00:00'))}`;
 }
-function days(option) { return option?.nights ? `${option.nights} noites` : ''; }
+function days(option) { const value = option?.tripDays ?? option?.nights; return value ? `${value} dias` : ''; }
 
 async function readJson(path) {
   const sep = path.includes('?') ? '&' : '?';
@@ -126,7 +126,7 @@ function renderMetrics() {
   el('premiumRoute').textContent = premium ? `${routeLabel(premium)} · ${dateRange(premium)}` : 'Sem dados ainda';
   el('premiumMeta').textContent = premium ? `Score ${premium.score ?? '—'}/100` : 'Comparação Economy × Premium';
 
-  const pricedRuns = historyRuns.filter(r => Number.isFinite(Number(r.bestTotalBRL)));
+  const pricedRuns = historyRuns.filter(r => r.bestTotalBRL !== null && r.bestTotalBRL !== undefined && Number.isFinite(Number(r.bestTotalBRL)));
   const historic = pricedRuns.length ? pricedRuns.reduce((a,b) => Number(a.bestTotalBRL) < Number(b.bestTotalBRL) ? a : b) : null;
   el('historicLow').textContent = money(historic?.bestTotalBRL);
   el('historicLowDate').textContent = historic?.searchedAt ? `Registrado em ${dateTime.format(new Date(historic.searchedAt))}` : 'O histórico ainda está vazio';
@@ -153,7 +153,43 @@ function renderRules() {
 function renderOptions() {
   const all = state.latest?.options || [];
   const options = state.cabin === 'all' ? all : all.filter(x => x.cabin === state.cabin);
-  el('tableEmpty').style.display = options.length ? 'none' : 'block';
+  const empty = el('tableEmpty');
+  empty.style.display = options.length ? 'none' : 'block';
+
+  if (!options.length) {
+    const complete = state.latest?.status === 'complete';
+    const references = state.latest?.marketReferences || [];
+    const referenceCards = references.length ? `
+      <div class="reference-block">
+        <div class="reference-heading">
+          <span>REFERÊNCIAS ENCONTRADAS</span>
+          <small>Não são ofertas elegíveis; servem para contexto de mercado.</small>
+        </div>
+        <div class="reference-grid">
+          ${references.map(ref => `
+            <article class="reference-card">
+              <div class="reference-top">
+                <strong>${ref.provider || ref.source || 'Referência'}</strong>
+                <span>${ref.cabin || '—'}</span>
+              </div>
+              <div class="reference-price">${money(ref.pricePerAdultBRL)} <small>por adulto</small></div>
+              <p>${ref.route || '—'} · ${ref.dates || '—'}</p>
+              <div class="reference-note">${ref.note || 'Referência de mercado não elegível.'}</div>
+            </article>
+          `).join('')}
+        </div>
+      </div>` : '';
+
+    empty.innerHTML = complete
+      ? `<span class="plane">✈</span>
+         <strong>Pesquisa concluída — nenhuma oferta passou todos os filtros</strong>
+         <p>O radar encontrou referências reais, mas não confirmou uma tarifa multidestino com bagagem, conexões e companhias dentro de todas as regras.</p>
+         ${referenceCards}`
+      : `<span class="plane">✈</span>
+         <strong>Pronto para a primeira busca</strong>
+         <p>O ranking aparecerá aqui já filtrado pelos seus critérios.</p>`;
+  }
+
   el('optionsBody').innerHTML = options.map((o, index) => `
     <tr>
       <td><strong>${index + 1}</strong></td>
@@ -191,7 +227,7 @@ function renderHistory() {
 }
 
 function renderChart() {
-  const runs = (state.history?.runs || []).filter(r => Number.isFinite(Number(r.bestTotalBRL)));
+  const runs = (state.history?.runs || []).filter(r => r.bestTotalBRL !== null && r.bestTotalBRL !== undefined && Number.isFinite(Number(r.bestTotalBRL)));
   el('runCount').textContent = String(runs.length);
   if (!runs.length) {
     el('averagePrice').textContent = '—';
