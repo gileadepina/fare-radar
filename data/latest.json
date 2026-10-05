@@ -3,8 +3,8 @@
   "searchedAt": "2026-10-05T10:44:00-03:00",
   "recommendation": {
     "code": "WATCH",
-    "title": "Acompanhar — faltou confirmação do preço final completo",
-    "reason": "A varredura encontrou tarifas reais de referência, porém nenhuma oferta pôde ser certificada com todos os critérios ao mesmo tempo: multidestino São Paulo→Londres e Paris→São Paulo, 2 adultos, 1 mala de 23 kg por pessoa, no máximo 1 conexão de 1h30–3h e sem companhias excluídas. O radar não registra preço parcial como oportunidade."
+    "title": "Acompanhar — nenhuma tarifa open-jaw completa foi confirmada",
+    "reason": "A primeira varredura não confirmou uma oferta completa São Paulo→Londres + Paris→São Paulo que atendesse simultaneamente bagagem, conexões, companhias e preço final. As referências round-trip anteriores foram removidas por não representarem o roteiro correto."
   },
   "summary": {
     "bestPurchase": null,
@@ -12,30 +12,11 @@
     "bestPremium": null
   },
   "alerts": [
-    "Primeira pesquisa concluída sem oferta totalmente elegível. Referências de mercado foram encontradas, mas não passaram pela validação completa de bagagem + multidestino + preço final."
+    "Pesquisa concluída sem oferta open-jaw elegível. Referências ida-e-volta pelo mesmo destino foram removidas e não serão mais aceitas."
   ],
   "options": [],
   "points": [],
-  "marketReferences": [
-    {
-      "source": "Companhia aérea",
-      "provider": "LATAM",
-      "route": "São Paulo–Londres",
-      "dates": "20/01/2027–28/01/2027",
-      "cabin": "Economy",
-      "pricePerAdultBRL": 6341.02,
-      "note": "Ida e volta para Londres, voo direto, taxas incluídas. Serve apenas como referência de mercado; não corresponde ao retorno por Paris e a bagagem de 23 kg não foi confirmada nessa tarifa."
-    },
-    {
-      "source": "Companhia aérea",
-      "provider": "LATAM",
-      "route": "São Paulo–Paris",
-      "dates": "20/01/2027–28/01/2027",
-      "cabin": "Economy",
-      "pricePerAdultBRL": 6528.42,
-      "note": "Ida e volta para Paris, com conexão, taxas incluídas. Serve apenas como referência de mercado; não corresponde ao roteiro multidestino solicitado e a bagagem de 23 kg não foi confirmada nessa tarifa."
-    }
-  ],
+  "marketReferences": [],
   "searchDiagnostics": {
     "sourcesChecked": [
       "LATAM",
@@ -47,6 +28,7 @@
     ],
     "eligibleOfferCount": 0,
     "strictValidationApplied": true,
-    "reasonNoEligibleOffers": "Nenhuma fonte acessível forneceu, na mesma oferta, preço final multidestino para 2 adultos com bagagem despachada confirmada e todos os detalhes necessários para validar conexão/companhia operadora."
+    "routeValidation": "open-jaw obrigatório: São Paulo→Londres + Paris→São Paulo",
+    "reasonNoEligibleOffers": "Nenhuma fonte acessível forneceu, na mesma combinação open-jaw, preço final para 2 adultos com bagagem despachada confirmada e todos os detalhes necessários para validar conexão e companhia operadora."
   }
 }
