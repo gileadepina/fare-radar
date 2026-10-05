@@ -9,6 +9,40 @@
       "recommendationLabel": "Acompanhar — nenhuma oferta totalmente verificável",
       "topOptions": [],
       "notes": "Pesquisa real executada. Foram encontradas referências atuais em fontes permitidas e oficiais, mas nenhuma oferta multidestino GRU/VCP→Londres + Paris→GRU/VCP pôde ser verificada simultaneamente com 2 adultos, 1 mala de 23 kg por adulto, preço final, regras de conexão e companhias excluídas. Nenhum preço incompleto foi promovido a opção elegível."
+    },
+    {
+      "searchedAt": "2026-10-05T12:07:42-03:00",
+      "bestTotalBRL": null,
+      "lowestTotalBRL": null,
+      "bestScore": null,
+      "recommendationCode": "WATCH",
+      "recommendationLabel": "Acompanhar — 3 referências open-jaw abaixo de R$ 12 mil",
+      "referenceLowestTotalBRL": 10168,
+      "topOptions": [],
+      "topReferences": [
+        {
+          "departDate": "2027-01-22",
+          "returnDate": "2027-01-30",
+          "totalBRL": 10168,
+          "outbound": "VCP→LTN",
+          "inbound": "ORY→GRU"
+        },
+        {
+          "departDate": "2027-01-20",
+          "returnDate": "2027-01-28",
+          "totalBRL": 10564,
+          "outbound": "GRU→LHR",
+          "inbound": "ORY→GRU"
+        },
+        {
+          "departDate": "2027-01-19",
+          "returnDate": "2027-01-27",
+          "totalBRL": 10726,
+          "outbound": "VCP→LHR",
+          "inbound": "ORY→VCP"
+        }
+      ],
+      "notes": "Nova busca corrigida para open-jaw. Três combinações indicativas abaixo do orçamento foram encontradas no Skyscanner, porém nenhuma foi promovida a oferta elegível porque bagagem de 23 kg e duração das conexões não foram validadas em fonte final autorizada."
     }
   ]
 }
