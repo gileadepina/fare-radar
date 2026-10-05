@@ -2,6 +2,8 @@
 
 Realize uma pesquisa diária de passagens para 2 adultos com os critérios de `data/config.json`.
 
+Use o Skyscanner como fonte principal de descoberta e comparação de combinações de datas, companhias e aeroportos. O Skyscanner NÃO é uma fonte final autorizada para registrar preço no dashboard: antes de promover uma opção para `data/latest.json`, confirme a mesma oferta ou uma oferta equivalente diretamente na companhia aérea oficial, Decolar ou Booking.
+
 Regras críticas:
 
 - ida GRU/VCP → Londres; priorize LHR, LGW e LCY;
@@ -19,7 +21,16 @@ Regras críticas:
 - considerar oportunidades verificáveis envolvendo pontos Itaú/Personnalité Black, sem presumir saldo;
 - nunca comprar ou preencher dados de pagamento.
 
-Para cada combinação pesquisada, compare o preço final para o casal e calcule score 0–100 com prioridade para preço, depois conexões, aeroportos, confiabilidade da fonte, composição da tarifa e cabine.
+Fluxo recomendado:
+
+1. Use o Skyscanner para identificar as combinações mais promissoras dentro da janela inteira.
+2. Priorize as combinações de 8 a 12 dias com menor preço aparente.
+3. Revalide cada candidata em companhia oficial, Decolar ou Booking.
+4. Confirme preço final para 2 adultos, bagagem de 23 kg por adulto, companhias operadoras, aeroportos e conexão.
+5. Rejeite qualquer opção que não tenha todos esses dados verificáveis.
+6. Só então calcule o score e registre a opção no Fare Radar.
+
+Para cada combinação elegível, compare o preço final para o casal e calcule score 0–100 com prioridade para preço, depois conexões, aeroportos, confiabilidade da fonte, composição da tarifa e cabine.
 
 Compare a pesquisa atual com `data/history.json`. Classifique a recomendação como `BUY_NOW`, `WATCH` ou `WEAK`. Gere alerta quando houver novo menor preço histórico, queda de 5% ou mais, total abaixo de R$ 12.000, Premium Economy excepcional ou oportunidade relevante com pontos.
 
