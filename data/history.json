@@ -1,3 +1,14 @@
 {
-  "runs": []
+  "runs": [
+    {
+      "searchedAt": "2026-10-05T10:44:00-03:00",
+      "bestTotalBRL": null,
+      "lowestTotalBRL": null,
+      "bestScore": null,
+      "recommendationCode": "WATCH",
+      "recommendationLabel": "Acompanhar — nenhuma oferta totalmente verificável",
+      "topOptions": [],
+      "notes": "Pesquisa real executada. Foram encontradas referências atuais em fontes permitidas e oficiais, mas nenhuma oferta multidestino GRU/VCP→Londres + Paris→GRU/VCP pôde ser verificada simultaneamente com 2 adultos, 1 mala de 23 kg por adulto, preço final, regras de conexão e companhias excluídas. Nenhum preço incompleto foi promovido a opção elegível."
+    }
+  ]
 }
