@@ -78,6 +78,41 @@
         }
       ],
       "notes": "Busca diária open-jaw concluída. A menor referência indicativa caiu 6,9%, de R$ 10.168 para R$ 9.468. Nenhuma opção foi promovida a oferta elegível porque não foi possível validar bagagem de 23 kg, conexão de 90–180 minutos e companhias operadoras em fonte final autorizada. Nenhuma Premium Economy completa foi validada."
+    },
+    {
+      "searchedAt": "2026-10-07T07:55:29-03:00",
+      "bestTotalBRL": null,
+      "lowestTotalBRL": null,
+      "bestScore": null,
+      "recommendationCode": "WATCH",
+      "recommendationLabel": "Acompanhar — menor referência open-jaw em R$ 9.590",
+      "referenceLowestTotalBRL": 9590,
+      "referenceVariationPct": 1.3,
+      "topOptions": [],
+      "topReferences": [
+        {
+          "departDate": "2027-01-22",
+          "returnDate": "2027-01-30",
+          "totalBRL": 9590,
+          "outbound": "VCP→LTN",
+          "inbound": "ORY→GRU"
+        },
+        {
+          "departDate": "2027-01-29",
+          "returnDate": "2027-02-09",
+          "totalBRL": 10146,
+          "outbound": "GRU→LHR",
+          "inbound": "CDG→GRU"
+        },
+        {
+          "departDate": "2027-01-30",
+          "returnDate": "2027-02-09",
+          "totalBRL": 10418,
+          "outbound": "VCP→LGW",
+          "inbound": "CDG→GRU"
+        }
+      ],
+      "notes": "Busca diária open-jaw concluída. Menor referência indicativa R$ 9.590 (+1,3% vs. R$ 9.468 ontem), ainda abaixo do orçamento. Nenhuma oferta elegível ou Premium Economy completa foi validada."
     }
   ]
 }

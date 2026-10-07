@@ -1,10 +1,10 @@
 {
   "status": "complete",
-  "searchedAt": "2026-10-06T08:05:53-03:00",
+  "searchedAt": "2026-10-07T07:55:29-03:00",
   "recommendation": {
     "code": "WATCH",
-    "title": "Acompanhar — referência open-jaw caiu 6,9%",
-    "reason": "A menor referência open-jaw encontrada hoje caiu de R$ 10.168 para R$ 9.468 para o casal, abaixo do orçamento de R$ 12.000. Ainda não é uma oferta elegível: o Skyscanner forneceu indicativos por trecho, e não foi possível confirmar em companhia aérea, Decolar ou Booking a mesma combinação com 1 mala de 23 kg por adulto, no máximo 1 conexão de 90–180 minutos e companhias operadoras permitidas."
+    "title": "Acompanhar — menor referência open-jaw segue abaixo de R$ 12 mil",
+    "reason": "A menor referência open-jaw recuperada hoje foi R$ 9.590 para o casal, 1,3% acima da menor referência de ontem (R$ 9.468). Ainda não é oferta elegível: não foi possível confirmar uma tarifa multicity única com 1 mala de 23 kg por adulto, no máximo 1 conexão de 90–180 minutos e companhias operadoras permitidas em companhia aérea, Decolar ou Booking."
   },
   "summary": {
     "bestPurchase": null,
@@ -12,7 +12,7 @@
     "bestPremium": null
   },
   "alerts": [
-    "Nova menor referência open-jaw: R$ 9.468 para o casal (VCP→LTN em 22/01 + CDG→VCP em 30/01), queda de 6,9% versus a menor referência anterior de R$ 10.168. É indicativa, não tarifa comprável validada."
+    "A menor referência indicativa continua abaixo do teto: R$ 9.590 para o casal. Variação diária: +1,3%. Sem novo alerta de queda ≥5%."
   ],
   "options": [],
   "points": [],
@@ -24,95 +24,94 @@
       "departDate": "2027-01-22",
       "returnDate": "2027-01-30",
       "tripDays": 8,
-      "totalBRL": 9468,
+      "totalBRL": 9590,
       "outbound": {
         "origin": "VCP",
         "destination": "LTN",
         "carrier": "Azul Airlines",
-        "indicativePerAdultBRL": 1852,
+        "indicativePerAdultBRL": 1965,
         "direct": false,
         "connectionStatus": "quantidade e duração não verificadas"
       },
       "inbound": {
-        "origin": "CDG",
-        "destination": "VCP",
+        "origin": "ORY",
+        "destination": "GRU",
         "carrier": "Vueling Airlines",
-        "indicativePerAdultBRL": 2882,
+        "indicativePerAdultBRL": 2830,
         "direct": false,
         "connectionStatus": "quantidade e duração não verificadas"
       },
-      "note": "Referência open-jaw completa: VCP→LTN em 22/01 + CDG→VCP em 30/01. Total indicativo para 2 adultos calculado pela soma de dois indicativos one-way do Skyscanner; não é uma tarifa multicity única validada. Não elegível ainda: bagagem de 23 kg, número/duração das conexões e companhias operadoras não foram confirmados em companhia aérea, Decolar ou Booking."
+      "note": "Referência open-jaw completa em rota. Total indicativo para 2 adultos calculado pela soma de dois indicativos one-way do Skyscanner; não é tarifa multicity única validada. Bagagem de 23 kg, número/duração das conexões e companhias operadoras permanecem sem confirmação final."
     },
     {
       "provider": "Skyscanner — indicativo open-jaw composto",
       "source": "Skyscanner",
       "cabin": "Economy",
-      "departDate": "2027-01-22",
-      "returnDate": "2027-01-30",
-      "tripDays": 8,
-      "totalBRL": 9902,
+      "departDate": "2027-01-29",
+      "returnDate": "2027-02-09",
+      "tripDays": 11,
+      "totalBRL": 10146,
+      "outbound": {
+        "origin": "GRU",
+        "destination": "LHR",
+        "carrier": "Avianca",
+        "indicativePerAdultBRL": 2360,
+        "direct": false,
+        "connectionStatus": "quantidade e duração não verificadas"
+      },
+      "inbound": {
+        "origin": "CDG",
+        "destination": "GRU",
+        "carrier": "Air France",
+        "indicativePerAdultBRL": 2713,
+        "direct": false,
+        "connectionStatus": "quantidade e duração não verificadas"
+      },
+      "note": "Referência open-jaw completa com Heathrow priorizado. Total indicativo para 2 adultos; não é tarifa multicity única validada. Bagagem de 23 kg e detalhes das conexões não foram confirmados em fonte final autorizada."
+    },
+    {
+      "provider": "Skyscanner — indicativo open-jaw composto",
+      "source": "Skyscanner",
+      "cabin": "Economy",
+      "departDate": "2027-01-30",
+      "returnDate": "2027-02-09",
+      "tripDays": 10,
+      "totalBRL": 10418,
       "outbound": {
         "origin": "VCP",
         "destination": "LGW",
         "carrier": "Azul Airlines",
-        "indicativePerAdultBRL": 2069,
+        "indicativePerAdultBRL": 2496,
         "direct": false,
         "connectionStatus": "quantidade e duração não verificadas"
       },
       "inbound": {
         "origin": "CDG",
-        "destination": "VCP",
-        "carrier": "Vueling Airlines",
-        "indicativePerAdultBRL": 2882,
+        "destination": "GRU",
+        "carrier": "Air France",
+        "indicativePerAdultBRL": 2713,
         "direct": false,
         "connectionStatus": "quantidade e duração não verificadas"
       },
-      "note": "Referência open-jaw completa com Gatwick, aeroporto priorizado: VCP→LGW em 22/01 + CDG→VCP em 30/01. Total indicativo para 2 adultos; não é uma tarifa multicity única validada. Bagagem de 23 kg e detalhes das conexões permanecem sem confirmação final."
-    },
-    {
-      "provider": "Skyscanner — indicativo open-jaw composto",
-      "source": "Skyscanner",
-      "cabin": "Economy",
-      "departDate": "2027-01-22",
-      "returnDate": "2027-01-30",
-      "tripDays": 8,
-      "totalBRL": 9994,
-      "outbound": {
-        "origin": "VCP",
-        "destination": "LHR",
-        "carrier": "Azul Airlines",
-        "indicativePerAdultBRL": 2115,
-        "direct": false,
-        "connectionStatus": "quantidade e duração não verificadas"
-      },
-      "inbound": {
-        "origin": "CDG",
-        "destination": "VCP",
-        "carrier": "Vueling Airlines",
-        "indicativePerAdultBRL": 2882,
-        "direct": false,
-        "connectionStatus": "quantidade e duração não verificadas"
-      },
-      "note": "Referência open-jaw completa com Heathrow, aeroporto priorizado: VCP→LHR em 22/01 + CDG→VCP em 30/01. Total indicativo para 2 adultos; não é uma tarifa multicity única validada. Bagagem de 23 kg e detalhes das conexões permanecem sem confirmação final."
+      "note": "Referência open-jaw completa com Gatwick priorizado. Total indicativo para 2 adultos; não é tarifa multicity única validada. Bagagem de 23 kg e detalhes das conexões não foram confirmados em fonte final autorizada."
     }
   ],
   "searchDiagnostics": {
     "sourcesChecked": [
       "Skyscanner — indicativos por trecho para descoberta",
-      "Azul — site oficial/páginas tarifárias consultáveis",
-      "Vueling — site oficial/páginas operacionais consultáveis",
-      "Decolar — busca web por combinação",
-      "Booking — busca web por combinação"
+      "Azul — página oficial de tarifas para Reino Unido consultada",
+      "Air France — páginas oficiais de tarifas para Paris/São Paulo consultadas",
+      "Decolar e Booking — busca por combinação exata, sem cotação multicity completa indexada"
     ],
     "eligibleOfferCount": 0,
     "openJawReferenceCount": 3,
-    "lowestOpenJawReferenceBRL": 9468,
-    "previousLowestOpenJawReferenceBRL": 10168,
-    "referenceVariationPct": -6.9,
+    "lowestOpenJawReferenceBRL": 9590,
+    "previousLowestOpenJawReferenceBRL": 9468,
+    "referenceVariationPct": 1.3,
     "strictValidationApplied": true,
     "routeValidation": "open-jaw obrigatório: GRU/VCP→Londres + CDG/ORY→GRU/VCP",
     "premiumEconomyStatus": "nenhuma tarifa Premium Economy completa e verificável foi encontrada nesta execução",
-    "pointsStatus": "nenhuma oportunidade aplicável de transferência Itaú→Azul foi confirmada nesta execução",
-    "reasonNoEligibleOffers": "A ferramenta do Skyscanner expôs preços indicativos por trecho, não uma tarifa multicity única. As fontes finais consultáveis não permitiram confirmar simultaneamente preço total open-jaw, 1 mala de 23 kg por adulto, número/duração das conexões entre 90–180 minutos e companhias operadoras."
+    "pointsStatus": "nenhuma oportunidade verificável com pontos Itaú/Personnalité foi confirmada nesta execução",
+    "reasonNoEligibleOffers": "O conector do Skyscanner fornece preços indicativos por trecho, não uma tarifa multicity única. As fontes finais consultáveis não permitiram confirmar simultaneamente preço total open-jaw, 1 mala de 23 kg por adulto, número/duração das conexões entre 90–180 minutos e companhias operadoras."
   }
 }
