@@ -78,6 +78,41 @@
         }
       ],
       "notes": "Busca diária open-jaw concluída. A menor referência indicativa caiu 6,9%, de R$ 10.168 para R$ 9.468. Nenhuma opção foi promovida a oferta elegível porque não foi possível validar bagagem de 23 kg, conexão de 90–180 minutos e companhias operadoras em fonte final autorizada. Nenhuma Premium Economy completa foi validada."
+    },
+    {
+      "searchedAt": "2026-10-08T18:25:00-03:00",
+      "bestTotalBRL": null,
+      "lowestTotalBRL": null,
+      "bestScore": null,
+      "recommendationCode": "WATCH",
+      "recommendationLabel": "Acompanhar — menor referência open-jaw subiu 5,2%",
+      "referenceLowestTotalBRL": 9958,
+      "referenceVariationPct": 5.2,
+      "topOptions": [],
+      "topReferences": [
+        {
+          "departDate": "2027-01-21",
+          "returnDate": "2027-01-31",
+          "totalBRL": 9958,
+          "outbound": "VCP→LTN",
+          "inbound": "ORY→VCP"
+        },
+        {
+          "departDate": "2027-01-23",
+          "returnDate": "2027-01-31",
+          "totalBRL": 10172,
+          "outbound": "GRU→LHR",
+          "inbound": "ORY→GRU"
+        },
+        {
+          "departDate": "2027-01-21",
+          "returnDate": "2027-01-31",
+          "totalBRL": 10176,
+          "outbound": "VCP→LGW",
+          "inbound": "ORY→VCP"
+        }
+      ],
+      "notes": "Pesquisa de 08/10/2026 com referências open-jaw completas construídas para descoberta a partir de preços indicativos do Skyscanner. Nenhuma tarifa multicity única foi confirmada em companhia oficial, Decolar ou Booking com todas as regras de bagagem, conexões e companhias; não existem ofertas elegíveis. Premium Economy e pontos Itaú não validados."
     }
   ]
 }
